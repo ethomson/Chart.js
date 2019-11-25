@@ -47,6 +47,8 @@ jobs:
         npm install
         gulp build
         gulp test --coverage ${BROWSERS}
+        ps auxwww
+        echo "Done?"
     - name: Package
       run: |
         gulp docs
