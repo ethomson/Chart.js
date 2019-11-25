@@ -39,7 +39,7 @@ jobs:
     - name: Select browsers
       run: |
         if [ "${{ runner.os }}" == "macOS" ]; then
-          echo "::set-env name=BROWSERS::--browsers chrome"
+          echo "::set-env name=BROWSERS::--browsers safari"
         fi
       shell: bash
     - name: Build and Test
