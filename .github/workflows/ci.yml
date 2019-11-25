@@ -1,6 +1,14 @@
 name: CI
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+      - "2.9"
+  pull_request:
+    branches:
+      - master
+      - "2.9"
 
 jobs:
   build:
@@ -31,7 +39,7 @@ jobs:
     - name: Select browsers
       run: |
         if [ "${{ runner.os }}" == "macOS" ]; then
-          echo "::set-env name=BROWSERS::--browsers chrome"
+          echo "::set-env name=BROWSERS::--browsers safari"
         fi
       shell: bash
     - name: Build and Test
@@ -39,6 +47,8 @@ jobs:
         npm install
         gulp build
         gulp test --coverage ${BROWSERS}
+        ps auxwww
+        echo "Done?"
     - name: Package
       run: |
         gulp docs
@@ -46,4 +56,5 @@ jobs:
         gulp bower
     - name: Publish Test Results
       run: cat ./coverage/lcov.info | ./node_modules/.bin/coveralls
+      shell: bash
       continue-on-error: true
