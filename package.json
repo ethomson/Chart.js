@@ -39,7 +39,7 @@
     "eslint-config-chartjs": "^0.2.0",
     "eslint-plugin-html": "^6.0.0",
     "gitbook-cli": "^2.3.2",
-    "gulp": "^4.0.0",
+    "gulp": "^4.0.2",
     "gulp-eslint": "^6.0.0",
     "gulp-file": "^0.4.0",
     "gulp-htmllint": "^0.0.16",
